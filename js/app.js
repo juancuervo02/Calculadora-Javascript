@@ -1,6 +1,11 @@
+num1 = 0;
+num2 = 0;
+operacion = '';
+let resultado = document.getElementById('display')
+
 let calculadora = {
 
-  num1 = '',
+  
 
   iniciar: function(){
     let uno = document.getElementById('1');
@@ -119,8 +124,11 @@ let calculadora = {
     }
 
     // Reiniciar
-    reset.onclick = function(){
-      resetear();
+    reset.onmousedown = function(){      
+      num1 = 0;
+      num2 = 0;
+      resultado.textContent = 0;
+      operacion = '';
     }
 
     // Operaciones
@@ -148,9 +156,40 @@ let calculadora = {
       num2 = resultado.textContent;
       resolver();
     }
-  }
 
-  limpiar: function(){
-    resultado.textContent = '';
+    // limpiar
+    function limpiar(){
+      resultado.textContent = '';
+    }
+
+    function resolver(){      
+      limpiar()
+      let res = 0;
+      switch (this.operacion) {
+        case '+':
+          res = parseFloat(num1) + parseFloat(num2);
+          break;
+        case '-':
+          res = parseFloat(num1) - parseFloat(num2);
+          break;
+        case '*':
+          res = parseFloat(num1) * parseFloat(num2);
+          break;
+        case '/':
+          res = parseFloat(num1) / parseFloat(num2);
+          break;
+      }
+      resultado.textContent = res;  
+    }    
+  
+    function resetear(){
+      num1 = 0;
+      num2 = 0;
+      resultado.textContent = 0;
+      operacion = '';
+    }  
+
   }
 }
+
+calculadora.iniciar();
