@@ -122,6 +122,9 @@ let calculadora = {
       resultado.textContent = '-' + resultado.textContent;
       negativo.style.border = '3px outset #000'
     }
+    negativo.onmouseup = function(elemento){
+      negativo.style.border = '0 inset #000'
+    }
 
     // Reiniciar
     reset.onmousedown = function(){      
@@ -129,32 +132,60 @@ let calculadora = {
       num2 = 0;
       resultado.textContent = 0;
       operacion = '';
+      reset.style.border = '3px outset #000'
+    }
+    reset.onmouseup = function(elemento){
+      reset.style.border = '0 inset #000'
     }
 
     // Operaciones
-    suma.onclick = function(){
+    suma.onmousedown = function(){
       num1 = resultado.textContent;
       operacion = '+';
       limpiar()
+      suma.style.border = '3px outset #000'
     }
-    resta.onclick = function(){
+    suma.onmouseup = function(elemento){
+      suma.style.border = '0 inset #000'
+    }
+
+    resta.onmousedown = function(){
       num1 = resultado.textContent;
       operacion = '-';
       limpiar();
+      resta.style.border = '3px outset #000'
     }
-    mult.onclick = function(){
+    resta.onmouseup = function(elemento){
+      resta.style.border = '0 inset #000'
+    }
+
+    mult.onmousedown = function(){
       num1 = resultado.textContent;
       operacion = '*';
       limpiar();
+      mult.style.border = '3px outset #000'
     }
-    divid.onclick = function(){
+    mult.onmouseup = function(elemento){
+      mult.style.border = '0 inset #000'
+    }
+
+    divid.onmousedown = function(){
       num1 = resultado.textContent;
       operacion = '/';
       limpiar();
+      divid.style.border = '3px outset #000'
     }
-    igual.onclick = function(){
+    divid.onmouseup = function(elemento){
+      divid.style.border = '0 inset #000'
+    }
+
+    igual.onmousedown = function(){
       num2 = resultado.textContent;
       resolver();
+      igual.style.border = '3px outset #000'
+    }
+    igual.onmouseup = function(elemento){
+      igual.style.border = '0 inset #000'
     }
 
     // limpiar
