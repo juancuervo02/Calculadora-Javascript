@@ -149,4 +149,8 @@ let calculadora = {
       resolver();
     }
   }
+
+  limpiar: function(){
+    resultado.textContent = '';
+  }
 }
